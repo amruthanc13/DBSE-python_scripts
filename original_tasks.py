@@ -3,6 +3,8 @@ import pymysql
 import re
 
 def original_tasks(task_ids):
+    '''Fetches the original task from database'''
+    
     connection = pymysql.connect(host="localhost", user="root", passwd="", database="sqlvali_data")
     cursor = connection.cursor()
     query = "select tskl_tsk_id, tskl_title, tskl_description from task_localization where tskl_tsk_id in  {}  and tskl_lang = 'en'".format(tuple(task_ids))
@@ -21,6 +23,7 @@ def original_tasks(task_ids):
     return tasks
 
 def parse_html_script(text):
+    
     print("text is: ", text)
     soup = BeautifulSoup(str(text), features="html.parser")
      # kill all script and style elements
