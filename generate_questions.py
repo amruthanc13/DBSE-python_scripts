@@ -19,7 +19,7 @@ def generate_tasks(task_ids):
 
         #Extract bag_of_words for each task
         bag_of_words_list = get_bag_of_words(task.get("task_id"))
-        #print("bag of words are ", bag_of_words_list)
+        print("No. of bag of words are ", len(bag_of_words_list))
 
         personalised_tasks += replace_and_generate_questions(task, proper_nouns, bag_of_words_list)
     insert_into_database(personalised_tasks)
@@ -63,7 +63,7 @@ def  replace_and_generate_questions(task, proper_nouns, bag_of_words):
             }
             )
 
-    print("Personalised tasks are: ", personalised_tasks)
+    #print("Personalised tasks are: ", personalised_tasks)
     return personalised_tasks
 
 
@@ -88,3 +88,4 @@ def insert_into_database(new_tasks):
     connection.close()  
 
 generate_tasks([487, 482])
+#generate_tasks([482])

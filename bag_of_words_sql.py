@@ -30,7 +30,7 @@ vals2 = [
 connection = pymysql.connect(host="localhost", user="root", passwd="", database="dbse_project")
 
 cursor = connection.cursor()
-cursor.executemany("insert into bag_of_words (task_id,bow ) values (%s, %s)", vals2)
+cursor.executemany("insert into bag_of_words (task_id,bow ) values (%s, %s)", vals1)
 
 
 #commiting the connection then closing it.
